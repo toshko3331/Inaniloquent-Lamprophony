@@ -19,10 +19,18 @@ class Window
 		// @height: The height of the window.
 		// @flags: All of the desired SDL_WindowFlags OR'd together.
 		//
-		// Return: Void
+		// Return: None
 		/*-------------------------*/
 		Window(const char* title,int x,int y,int width, int height,Uint32 flags);
 		
+		/*-------------------------*/
+		// 
+		// Description: Wrapper for the Destroy method as a destructor.
+		//
+		// Return: None
+		/*-------------------------*/
+		~Window();
+
 		/*-------------------------*/
 		// 
 		// Description: Frees up all of the memory held by all of the different
@@ -39,22 +47,6 @@ class Window
 		// Return: The handle to the window.
 		/*-------------------------*/
 		SDL_Window* GetWindow() const {return m_window; }
-		
-		/*-------------------------*/
-		// 
-		// Description: Getter.
-		//
-		// Return: The handle to the renderer.
-		/*-------------------------*/
-		SDL_Renderer* GetRenderer() const {return m_renderer;}
-		
-		/*-------------------------*/
-		// 
-		// Description: Getter.
-		//
-		// Return: The handle to the texture.
-		/*-------------------------*/
-		SDL_Texture* GetTexture() const {return m_texture;}
 		
 		/*-------------------------*/
 		// 
@@ -82,12 +74,11 @@ class Window
 
 	private:
 		SDL_Window* m_window;
-		SDL_Renderer* m_renderer;
-		SDL_Texture* m_texture;
 		SDL_GLContext m_GLContext;
 
 		int m_windowWidth;
 		int m_windowHeight;
+		bool m_isDestroyed;
 };
 
 #endif //WINDOW_H

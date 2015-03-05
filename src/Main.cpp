@@ -22,17 +22,17 @@ void MainLoop(const Window& window)
 	glClearColor(0.25f,0.45f,1.0f,1.0f);
 
 	bool isRunning = true;
-	SDL_Event* event;
+	SDL_Event event;
 
 	while(isRunning)
 	{
-		//Rendering
-		glClear(GL_COLOR_BUFFER_BIT);
-		SDL_GL_SwapWindow(window.GetWindow());
 		//Logic
 		//Events
 		HandleInput(&isRunning,
-			event);
+			&event);
+		//Rendering
+		glClear(GL_COLOR_BUFFER_BIT);
+		SDL_GL_SwapWindow(window.GetWindow());
 	}
 }
 
@@ -54,6 +54,7 @@ int main(int argc,char ** argv)
 	
 	MainLoop(window);
 	window.Destroy();
+	SDL_Quit();
 
 	return 0;
 }
