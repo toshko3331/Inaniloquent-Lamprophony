@@ -203,7 +203,6 @@ OBJLevelLoader::OBJLevelLoader(std::string objFile)
 		{
 			m_objectVector.at(i)->InitalizeGLBuffers();	
 		}
-		glBindVertexArray(0);	
 	}else
 	{
 	
