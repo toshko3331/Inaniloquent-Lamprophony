@@ -10,7 +10,7 @@ class Window
 	public:
 		/*-------------------------*/
 		// 
-		// Description: Initializes the window, renderer, texture and OpenGL context.
+		// Description: Initializes the window, and the OpenGL context.
 		//
 		// @title: The title that will be assigned to the window.
 		// @x: The horizontal position of the window when it is created.
